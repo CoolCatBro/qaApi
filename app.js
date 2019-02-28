@@ -18,6 +18,7 @@ app.use(jsonParser());
 app.use('/questions',routes);
 
 //catch 404 and foward to error handler
+//Syncronous error can be handle by express auto
 app.use(function(req,res,next){
     var err = new Error("Not Found");
     err.status = 404;
