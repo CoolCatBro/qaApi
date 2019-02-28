@@ -7,13 +7,15 @@ var db = require('./database/database');
 //GET /questions
 //return all questions
 router.get('/',function(req,res){
-    res.json({response: 'GET request'});
+    db.query('select * from questions',function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
 });
 
 //POST /questions
 //submit a question
 router.post('/:qID', function (req, res) {
-    //post an answer
 });
 
 //GET /answers
