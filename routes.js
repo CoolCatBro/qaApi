@@ -2,6 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
+
 var db = require('./database/database');
 
 //GET /questions
@@ -21,6 +22,10 @@ router.post('/:qID', function (req, res) {
 //GET /answers
 //return answers of a question
 router.get('/:qID', function (req, res) {
+    db.query('select * from questions where qID='+req.params.qID, function (err, result) {
+        if (err) throw err;
+        res.send(result);
+    });
 });
 
 //POST /answer
