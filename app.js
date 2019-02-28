@@ -3,6 +3,8 @@
 //Export express
 var express = require('express');
 var app = express();
+
+//Export routes
 var routes = require('./routes');
 
 //Use json bodypraser
