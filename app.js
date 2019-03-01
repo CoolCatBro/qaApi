@@ -7,12 +7,14 @@ var app = express();
 //Export routes
 var routes = require('./routes');
 
-//Use json bodypraser
-var jsonParser = require('body-parser').json;
+//Use bodypraser
+//Multer can even be added to handle file uplaod
+var bodyParser = require('body-parser');
 var logger = require("morgan");
 
-app.use(logger('dev'));
-app.use(jsonParser());
+app.use(logger('dev'));     //Log request performed
+app.use(bodyParser.json()); //Prase JSON
+app.use(bodyParser.urlencoded({extended:true})); //Prase form data
 
 //Middlewares handle by routes module
 app.use('/questions',routes);
