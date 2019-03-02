@@ -13,8 +13,8 @@ var bodyParser = require('body-parser');
 var logger = require("morgan");
 
 app.use(logger('dev'));     //Log request performed
-app.use(bodyParser.json()); //Prase JSON
-app.use(bodyParser.urlencoded({extended:true})); //Prase form data
+app.use(bodyParser.json()); //Parse JSON
+app.use(bodyParser.urlencoded({extended:true})); //Parse form data
 
 //Middlewares handle by routes module
 app.use('/questions',routes);
